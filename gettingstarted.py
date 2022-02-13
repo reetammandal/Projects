@@ -26,5 +26,34 @@ else :
     print ("lose")
 
 
-fruits = ["apple","cherry","banana"]
-print (fruits)
+fruitsSet = ["apple","cherry","banana"]
+print (fruitsSet)
+print (fruitsSet[0])
+
+
+carsDictionary={
+    "brand":"Honda",
+    "model":"Civic",
+    "year":2012,
+    "electric":True,
+    "colors":["red","white","blue"]    
+}
+
+print(carsDictionary["brand"])
+print(len(carsDictionary))
+
+
+animalsTuples=("elephant","tiger","giraffe")
+truthTuple=(False, True, True)
+
+flowersTuples=tuple(("rose","dandilion","lily"))
+
+
+for i in range(len(flowersTuples)):
+    print (flowersTuples[i])
+
+
+
+
+
+

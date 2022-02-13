@@ -2,6 +2,7 @@
 
 
 import java.util.HashMap;
+import java.util.Scanner; 
 
  class Maps{
     public static void main(String args[]){
@@ -80,7 +81,7 @@ class Dog extends Animals implements AnimalStuff{
 
 class Animal{
     private String name;
-    private String color;
+    //private String color;
     public void eat(){
         System.out.println("Eat!");
     }
@@ -94,7 +95,7 @@ class Animal{
 
 class Monkey extends Animal{
     private int breed;
-    private String litterpreference;
+    //private String litterpreference;
     public int getBreed(){
         return breed;
     }
@@ -117,4 +118,72 @@ class Polymorphism{
         Monkey monkey=new Monkey();
         monkey.eat();
     }
+}
+
+
+/*
+class Scanner{
+    public static void main(String[] args){
+        Scanner scannerObj = new Scanner(System in);
+        System.out.println("Enter name, height and weight:");
+        String username = scannerObj.nextline();
+        int age=scannerObj.nextInt();
+        double weight=scannerObj.nextDouble();
+
+        System.out.println("Hello, "+username+"!");
+
+    }
+}
+*/
+
+
+/*class Fishes{
+    public static void main(String[] args){
+        enum Breed {
+            Tilapia,
+            Carp,
+            Catfish
+        }
+
+        System.out.println("Hello, "+username+"!");
+
+    }
+}
+*/
+
+class MultithreadThing extends Thread{
+    
+    private int threadNumber;
+    public MultithreadThing(int threadNumber){
+        this.threadNumber=threadNumber;
+    }
+
+    @Override
+    public void run(){
+        for(int i=1; i <= 5; i++){
+            System.out.println(i+" from thread #"+threadNumber);
+            if (threadNumber == 3){
+                throw new RuntimeException();
+            }
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+            }
+        }                
+    }
+}
+class Multithreading{
+    public static void main(String[] args){
+        MultithreadThing myThing1=new MultithreadThing(5);
+        MultithreadThing myThing2=new MultithreadThing(5);
+        myThing1.run();
+        myThing2.run();
+        myThing1.start();
+        myThing2.start();
+        for(int i = 1; i <=5; i ++){
+            MultithreadThing myThing=new MultithreadThing(i);
+            myThing.start();
+        }
+    }
+
 }
